@@ -1,0 +1,33 @@
+<img id="burgerImg" src="./assets/img/burger.jpg">
+<h1>Eat-Da-Burger</h1>
+
+<div id="toEat">
+    <ul>
+  {{#each burgers}}
+  {{#if this.devoured}}
+  {{else}}
+  	<li class="list">
+  	   <p>{{this.id}}- {{this.burger_name}}</p>
+        <button data-burgerid="{{this.id}}" class="devour">Devour It!</button>
+  	</li>
+  {{/if}}
+  {{/each}}
+</ul>
+</div>
+<div id="eaten">
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  	<li class="list">
+  	   <p>{{this.burger_name}}</p>
+  	</li>
+  {{/if}}
+  {{/each}}
+</ul>
+</div>
+
+<form id="addBurger" action="/api/burgers" method="POST">Add A Burger! 
+	<textarea rows="2" type="text" name="burger"></textarea>
+
+	<button type="submit" id="submit">Submit</button>
+</form>
